@@ -8,6 +8,17 @@ Este repositório contém scripts personalizados para integração com o Nautilu
 - Integração simples e fácil de configurar.
 - Personalizável para atender às suas necessidades.
 
+## Pré-requisitos
+
+Certifique-se de que as seguintes dependências estão instaladas no seu sistema antes de usar os scripts:
+
+- [Zenity](https://help.gnome.org/users/zenity/stable/): Para criar diálogos gráficos.
+- [FFmpeg](https://ffmpeg.org/): Para manipulação de arquivos de mídia.
+- [ImageMagick](https://imagemagick.org/): Para edição e conversão de imagens.
+- Outras dependências específicas podem ser mencionadas nos scripts individuais.
+
+Você pode instalar essas dependências usando o gerenciador de pacotes da sua distribuição.
+
 ## Como usar
 
 1. Clone este repositório:
