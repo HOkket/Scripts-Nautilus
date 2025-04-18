@@ -7,6 +7,7 @@ Este repositório contém scripts personalizados para integração com o Nautilu
 - Scripts para automação de tarefas no Nautilus.
 - Integração simples e fácil de configurar.
 - Personalizável para atender às suas necessidades.
+- Instalação automatizada através do script `install.sh`.
 
 ## Pré-requisitos
 
@@ -21,6 +22,8 @@ Você pode instalar essas dependências usando o gerenciador de pacotes da sua d
 
 ## Como usar
 
+### Instalação Manual
+
 1. Clone este repositório:
     ```bash
     git clone https://github.com/seu-usuario/Scripts-Nautilus.git
@@ -33,6 +36,19 @@ Você pode instalar essas dependências usando o gerenciador de pacotes da sua d
     ```bash
     chmod +x ~/.local/share/nautilus/scripts/*
     ```
+
+### Instalação Automatizada
+
+1. Clone este repositório:
+    ```bash
+    git clone https://github.com/seu-usuario/Scripts-Nautilus.git
+    ```
+2. Execute o script de instalação:
+    ```bash
+    cd Scripts-Nautilus
+    ./install.sh
+    ```
+
 4. Acesse os scripts clicando com o botão direito em um arquivo ou pasta no Nautilus e navegando até o menu "Scripts".
 
 ## Contribuição
