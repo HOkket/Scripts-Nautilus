@@ -11,7 +11,7 @@ fi
 
 # Copia os scripts para o diretório de destino
 echo "Copiando scripts para $DEST_DIR..."
-cp -r Audio/ Imagens/ Videos/ "$DEST_DIR"
+cp -r Audio/ Imagens/ Videos/ Criptografia\ \(teste\)/ "$DEST_DIR"
 
 # Torna todos os scripts executáveis
 echo "Tornando os scripts executáveis..."
