@@ -5,16 +5,12 @@ readarray FILENAME <<< "$(echo -e "$NAUTILUS_SCRIPT_SELECTED_FILE_PATHS" | sed -
 
 for file in "${FILENAME[@]}"; do
     file=$(echo "$file" | tr -d $'\n')
-    if ffprobe -v error -select_streams v:0 -show_entries stream=codec_type -of csv=p=0 "$file" | grep -q 'video'; thenS
+    if ffprobe -v error -select_streams v:0 -show_entries stream=codec_type -of csv=p=0 "$file" | grep -q 'video'; then
         # Obter duração total do vídeo
         duration=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$file")
         
-        # Converter para MOV compatível com DaVinci Resolve
-        ffmpeg -i "$file" \
-            -c:v dnxhd \
-            -profile:v dnxhr_hq \
-            -c:a pcm_s16le \
-            "${file%.*}-converted.mov" 2>&1 | \
+        # Converter com barra de progresso
+        ffmpeg -i "$file" -c:v prores -profile:v 3 -c:a pcm_s16le "${file%.*}-converted.mov" 2>&1 | \
         while read -r line; do
             if [[ $line =~ time=([0-9:.]+) ]]; then
                 current_time=$(echo "${BASH_REMATCH[1]}" | awk -F: '{ print ($1 * 3600) + ($2 * 60) + $3 }')
@@ -29,9 +25,8 @@ for file in "${FILENAME[@]}"; do
     else
         notify-send "Erro" "O arquivo $file não é um vídeo." --app-name="Conversor"
         exit 1
-    
     fi
 done
 
-notify-send "Deu certo!" "Os arquivos foram convertidos para MOV (DNxHR HQ)." --app-name="Conversor"
+notify-send "Deu certo!" "Os arquivos foram convertidos para MOV." --app-name="Conversor"
 }

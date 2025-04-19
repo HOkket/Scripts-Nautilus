@@ -5,9 +5,10 @@ readarray FILENAME <<< "$(echo -e "$NAUTILUS_SCRIPT_SELECTED_FILE_PATHS" | sed -
 
 for file in "${FILENAME[@]}"; do
     file=$(echo "$file" | tr -d $'\n')
-    if ffprobe -v error -select_streams v:0 -show_entries stream=codec_type -of csv=p=0 "$file" | grep -q 'video'; then        # Obter duração total do vídeo
-        duration=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$file" || echo "0")
-                
+    if ffprobe -v error -select_streams v:0 -show_entries stream=codec_type -of csv=p=0 "$file" | grep -q 'video'; then
+        # Obter duração total do vídeo
+        duration=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$file")
+        
         # Converter com barra de progresso
         ffmpeg -i "$file" -c:v copy -c:a copy "${file%.*}-converted.mkv" 2>&1 | \
         while read -r line; do
@@ -24,10 +25,8 @@ for file in "${FILENAME[@]}"; do
     else
         notify-send "Erro" "O arquivo $file não é um vídeo." --app-name="Conversor"
         exit 1
-    
     fi
 done
 
 notify-send "Deu certo!" "Os arquivos foram convertidos para MKV." --app-name="Conversor"
 }
-
