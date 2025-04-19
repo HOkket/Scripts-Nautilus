@@ -24,6 +24,7 @@ for file in "${FILENAME[@]}"; do
             --auto-close
     else
         notify-send "Erro" "O arquivo $file não é um vídeo." --app-name="Conversor"
+        exit 1
     fi
 done
 

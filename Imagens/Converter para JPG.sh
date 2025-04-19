@@ -10,6 +10,7 @@ for file in "${FILENAME[@]}"; do
         convert "$file" "${file%.*}-converted.jpg"
     else
         notify-send "Erro" "O arquivo $file não é uma imagem." --app-name="Conversor"
+        exit 1
     fi
 done
 

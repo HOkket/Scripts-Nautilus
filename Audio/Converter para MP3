@@ -24,6 +24,7 @@ for file in "${FILENAME[@]}"; do
             --auto-close
     else
         notify-send "Erro" "O arquivo $file não é um áudio." --app-name="Conversor"
+        exit
     fi
 done
 
