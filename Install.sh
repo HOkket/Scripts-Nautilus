@@ -11,14 +11,20 @@ fi
 
 # Copia os scripts para o diretório de destino
 echo "Copiando scripts para $DEST_DIR..."
-cp -r cp -r Audio/ Imagens/ Videos/ "$DEST_DIR"
+cp -r Audio/ Imagens/ Videos/ "$DEST_DIR"
 
 # Torna todos os scripts executáveis
 echo "Tornando os scripts executáveis..."
-find "$DEST_DIR" -type f -exec chmod +x {} +
+find "$DEST_DIR" -type f -name "*.sh" -exec chmod +x {} +
 
 # Atualiza os scripts do Nautilus
 echo "Atualizando os scripts do Nautilus..."
-nautilus -q
+if pgrep -x "nautilus" > /dev/null; then
+    echo "Reiniciando o Nautilus..."
+    nautilus -q
+else
+    echo "Nautilus não está em execução. Por favor, reinicie-o manualmente para aplicar as alterações."
+fi
 
 echo "Instalação concluída! Os scripts estão disponíveis no menu de contexto do Nautilus."
+echo "Para acessar o menu de contexto, clique com o botão direito em um arquivo ou pasta no Nautilus. Saiba mais em: https://help.gnome.org/users/nautilus/stable/"
