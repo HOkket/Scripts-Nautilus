@@ -34,7 +34,7 @@ Você pode instalar essas dependências usando o gerenciador de pacotes da sua d
     ```
 3. Certifique-se de que os scripts têm permissão de execução:
     ```bash
-    chmod +x ~/.local/share/nautilus/scripts/*
+    find ~/.local/share/nautilus/scripts/ -type f -exec chmod +x {} +
     ```
 
 ### Instalação Automatizada
