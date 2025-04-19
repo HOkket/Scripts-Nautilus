@@ -5,7 +5,7 @@ readarray FILENAME <<< "$(echo -e "$NAUTILUS_SCRIPT_SELECTED_FILE_PATHS" | sed -
 
 for file in "${FILENAME[@]}"; do
     file=$(echo "$file" | tr -d $'\n')
-    if file "$file" | grep -qE 'video|media'; then
+    if ffprobe -v error -select_streams v:0 -show_entries stream=codec_type -of csv=p=0 "$file" | grep -q 'video'; then
         # Obter duração total do vídeo
         duration=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$file")
         
