@@ -26,11 +26,11 @@ Você pode instalar essas dependências usando o gerenciador de pacotes da sua d
 
 1. Clone este repositório:
     ```bash
-    git clone https://github.com/seu-usuario/Scripts-Nautilus.git
+    git clone https://github.com/HOkket/Scripts-Nautilus
     ```
 2. Copie os scripts para o diretório de scripts do Nautilus:
     ```bash
-    cp Scripts-Nautilus/* ~/.local/share/nautilus/scripts/
+    cp -r Scripts-Nautilus/* ~/.local/share/nautilus/scripts/
     ```
 3. Certifique-se de que os scripts têm permissão de execução:
     ```bash
