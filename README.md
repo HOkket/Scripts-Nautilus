@@ -41,7 +41,7 @@ Você pode instalar essas dependências usando o gerenciador de pacotes da sua d
 
 1. Clone este repositório:
     ```bash
-    git clone https://github.com/seu-usuario/Scripts-Nautilus.git
+    git clone https://github.com/HOkket/Scripts-Nautilus
     ```
 2. Execute o script de instalação:
     ```bash
