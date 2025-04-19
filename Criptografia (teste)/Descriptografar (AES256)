@@ -1,7 +1,10 @@
 #!/bin/bash
 
+# Lê os arquivos selecionados no Nautilus
+readarray -t FILENAME <<< "$(echo -e "$NAUTILUS_SCRIPT_SELECTED_FILE_PATHS" | sed -e 's/\r//g')"
+
 # Verifica se pelo menos um arquivo foi selecionado
-if [ "$#" -eq 0 ]; then
+if [ "${#FILENAME[@]}" -eq 0 ]; then
     zenity --error --title="Erro" --text="Nenhum arquivo foi selecionado!"
     exit 1
 fi
@@ -16,7 +19,7 @@ if [ -z "$senha" ]; then
 fi
 
 # Descriptografa cada arquivo selecionado
-for arquivo in "$@"; do
+for arquivo in "${FILENAME[@]}"; do
     # Remove a extensão .gpg para o arquivo descriptografado
     arquivo_original="${arquivo%.gpg}"
 
