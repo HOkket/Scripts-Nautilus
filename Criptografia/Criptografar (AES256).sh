@@ -28,7 +28,9 @@ for arquivo in "${FILENAME[@]}"; do
 
     # Verifica se a criptografia foi bem-sucedida
     if [ $? -eq 0 ]; then
-        zenity --info --title="Sucesso" --text="Arquivo '$arquivo' criptografado com sucesso como '$arquivo_criptografado'."
+        zenity --info \
+            --title="Sucesso" \
+            --text="Arquivo '$arquivo' criptografado com sucesso como '$arquivo_criptografado'."
     else
         zenity --error --title="Erro" --text="Falha ao criptografar o arquivo '$arquivo'."
     fi
