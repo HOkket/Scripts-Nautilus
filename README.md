@@ -16,6 +16,7 @@ Certifique-se de que as seguintes dependências estão instaladas no seu sistema
 - [Zenity](https://help.gnome.org/users/zenity/stable/): Para criar diálogos gráficos.
 - [FFmpeg](https://ffmpeg.org/): Para manipulação de arquivos de mídia.
 - [ImageMagick](https://imagemagick.org/): Para edição e conversão de imagens.
+- [vt-cli](https://github.com/VirusTotal/vt-cli): Utilitario de verificação do VirusTotal
 - Outras dependências específicas podem ser mencionadas nos scripts individuais.
 
 Você pode instalar essas dependências usando o gerenciador de pacotes da sua distribuição.
