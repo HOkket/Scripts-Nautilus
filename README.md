@@ -47,7 +47,7 @@ Você pode instalar essas dependências usando o gerenciador de pacotes da sua d
 2. Execute o script de instalação:
     ```bash
     cd Scripts-Nautilus
-    ./install.sh
+    ./instal.sh
     ```
 
 4. Acesse os scripts clicando com o botão direito em um arquivo ou pasta no Nautilus e navegando até o menu "Scripts".
