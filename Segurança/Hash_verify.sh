@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#Nome da aplicação
-#APP_NAME="📇 Hashing"
 
 IFS=$'\n' read -r -d '' -a FILENAME <<< "$NAUTILUS_SCRIPT_SELECTED_FILE_PATHS"
 
@@ -32,8 +30,8 @@ for file in "${FILENAME[@]}"; do
             --text="Hash ${HASH} foi registrada."
     else
         zenity --warning \
-            --title="⚠️ Aviso" \
-            --text="🚫 Nem uma hash foi registrada."
+            --title=" Aviso" \
+            --text=" Nem uma hash foi registrada."
         continue
     fi
 
@@ -52,7 +50,7 @@ for file in "${FILENAME[@]}"; do
     else
         zenity --warning \
             --title="Comparação de hash completa!" \
-            --text="A hash fornecida não é igual à hash do arquivo!\n\n⚠️ Arquivo inseguro!!! ⚠️"
+            --text="A hash fornecida não é igual à hash do arquivo!\n\n Arquivo inseguro!!! "
     fi
 
 done
