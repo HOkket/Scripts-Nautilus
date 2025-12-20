@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Verificando se o gerenciador de pacotes é o pacman
+PKG_PACMAN=$(command -v pacman)
+
+if [[ "$PKG_PACMAN" ]]; then
+    sudo pacman -S zenity imagemagick poppler ffmpeg 
+fi
+
+
 # Define o diretório de destino
 DEST_DIR="$HOME/.local/share/nautilus/scripts"
 
